@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package sensors;
+
+// DHT22
+message SensorDHT {
+    string device = 1;
+    string type = 2;
+    double timestamp = 3;
+    DataDHT data = 4;
+}
+
+message DataDHT {
+    double temperature = 1;
+    double humidity = 2;
+}
+
+// Onyehn_PIR
+message SensorPIR {
+    string device = 1;
+    string type = 2;
+    double timestamp = 3;
+    DataPIR data = 4;
+}
+
+message DataPIR {
+    bool motion = 1;
+}
+
+// Anmbest_MD46N
+message SensorDLI {
+    string device = 1;
+    string type = 2;
+    double timestamp = 3;
+    DataDLI data = 4;
+}
+
+message DataDLI {
+    bool light = 1;
+}

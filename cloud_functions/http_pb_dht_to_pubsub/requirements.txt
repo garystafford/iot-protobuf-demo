@@ -1,0 +1,6 @@
+# Function dependencies, for example:
+# package>=version
+google-cloud-pubsub
+flask_api
+protobuf
+pyjwt

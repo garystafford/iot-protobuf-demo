@@ -1,0 +1,10 @@
+# pip3 install -r requirements.txt
+joblib
+jupyter
+matplotlib
+pandas
+matplotlib
+pymongo
+python-dotenv
+dnspython
+mlxtend
