@@ -16,7 +16,7 @@ def read_message(event, context):
     message = message.replace("'", '"')
     message = message.replace('True', 'true')
     message = json.loads(message)
-    logging.info(message)
+    logging.debug(message)
 
     client = pymongo.MongoClient(MONGODB_CONN)
     db = client[MONGODB_DB]

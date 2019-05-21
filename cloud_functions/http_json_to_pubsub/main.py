@@ -24,8 +24,7 @@ def incoming_message(request):
                              status.HTTP_400_BAD_REQUEST,
                              {'ContentType': 'application/json'})
 
-    logging.info(request_json)
-    logging.info(len(request_json))
+    logging.debug(request_json)
 
     send_message(request_json)
 
@@ -45,7 +44,7 @@ def validate_token(request):
     try:
         payload = jwt.decode(auth_token, SECRET_KEY)
         if payload['id'] == ID and payload['password'] == PASSWORD:
-            logging.info(payload)
+            logging.debug(payload)
             return True
     except jwt.ExpiredSignatureError:
         return False
@@ -56,4 +55,4 @@ def validate_token(request):
 def send_message(message):
     publisher = pubsub_v1.PublisherClient()
     publisher.publish(topic=TOPIC, data=bytes(str(message), 'utf-8'))
-    logging.info(str(message))
+    logging.debug(str(message))

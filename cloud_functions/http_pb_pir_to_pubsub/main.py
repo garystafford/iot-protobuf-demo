@@ -25,12 +25,10 @@ def incoming_message(request):
         return make_response(jsonify({'success': False}),
                              status.HTTP_400_BAD_REQUEST,
                              {'ContentType': 'application/json'})
-    logging.info(str(data))
-    logging.info(len(str(data)))
+    logging.debug(str(data))
 
     sensor_pb = sensors_pb2.SensorPIR()
     sensor_pb.ParseFromString(data)
-    # logging.info(str(sensor_pb))
 
     sensor_json = MessageToJson(sensor_pb)
     send_message(sensor_json)
@@ -51,7 +49,7 @@ def validate_token(request):
     try:
         payload = jwt.decode(auth_token, SECRET_KEY)
         if payload['id'] == ID and payload['password'] == PASSWORD:
-            logging.info(payload)
+            logging.debug(payload)
             return True
     except jwt.ExpiredSignatureError:
         return False
@@ -62,4 +60,4 @@ def validate_token(request):
 def send_message(message):
     publisher = pubsub_v1.PublisherClient()
     publisher.publish(topic=TOPIC, data=bytes(str(message), 'utf-8'))
-    logging.info(str(message))
+    logging.debug(str(message))
