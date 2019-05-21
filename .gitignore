@@ -172,6 +172,6 @@ fabric.properties
 .idea/httpRequests
 
 **/.DS_Store
-#!/notebooks/.env
+!/notebooks/.env
 
 **/.ipynb_checkpoints
