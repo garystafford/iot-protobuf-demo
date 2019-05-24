@@ -1,4 +1,4 @@
-# IoT Data Analytics with Protocol Buffers, Google Cloud Functions, and MongoDB Atlas
+# IoT Telemetry Collection using Google Protocol Buffers, Cloud Functions, Cloud Pub/Sub, and MongoDB Atlas
 Project files for demonstration detailed in the article, [IoT Telemetry Collection using Google Protocol Buffers, Cloud Functions, Cloud Pub/Sub, and MongoDB Atlas](https://wp.me/p1RD28-6l6)
 
 #### Introduction
